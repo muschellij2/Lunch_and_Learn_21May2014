@@ -1,0 +1,163 @@
+---
+title       : Localization in ICH 
+subtitle    : A CT Imaging Pipeline
+author      : John Muschelli 
+job         : Johns Hopkins Bloomberg School of Public Health
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight  # {highlight.js, prettify, highlight}
+hitheme     : hemisu-light      # 
+widgets     : mathjax            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+--- .cover #Cover
+
+
+
+
+
+## Goals
+
+1.  Develop a pipeline to register patient CT scans to a CT template
+2.  Create a 3-dimensional (3D) density map of hemorrhages from MISTIE/ICES 
+3. Quantify of hemorrhage engagement of regions in the brain
+4. Determine if differences in location relate to NIHSS and modified Glasgow Coma Scale (GCS)
+5. Generate a stroke region of engagement (ROI)  using within-sample validation.
+
+---
+
+## Neuroimaging Data - voxels = 3D pixels
+
+<img src="../RIP_SlideDeck/RIP_SlideDeck_2013Oct28-figure/clear_zoom.png" height=308 width=600 alt="Data structure", style="float:left;">
+
+<img src="../RIP_SlideDeck/RIP_SlideDeck_2013Oct28-figure/movie_final.gif" style="float:right;" height=350 width=350 alt="Spinning floating brain">
+
+---
+
+
+## DICOM - slicing a salami
+
+<img src="lightbox.png" width=900 alt="Spinning floating brain">
+
+---
+
+
+## NIfTI - a 3D brain! 
+
+Note the Gantry tilt - (cone heading)
+
+
+<img src="Gantry_Tilt.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" >
+
+---
+
+## Gantry Tilt - It's a Brain!
+
+
+<img src="Gantry_Corrected.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" >
+
+---
+
+
+## Brain Extraction!
+
+<img src="../CT_Pipeline/100-318_20070723_0957_CT_3_CT_Head-_SS_Mask_0.01.png" width=400 alt="Data structure", style="float:left;">
+
+<img src="../CT_Pipeline/100-318_20070723_0957_CT_3_CT_Head-_SS_0.01.png" width=400 alt="Data structure", style="float:left;">
+
+---
+
+## Registration
+
+* Chris Rorden has released a [Clinical Toolbox](http://www.mccauslandcenter.sc.edu/CRNL/clinical-toolbox)
+* Has a **CT Template**!
+* Uses SPM to do spatial co-registration "Normalization".
+* Must mask out the lesion / stroke.
+* MISTIE and ICES - 111 patients
+
+---
+
+## Registered Images and Masks
+
+<img src="../CT_Pipeline/native_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;">
+
+<img src="../CT_Pipeline/raw_spm_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;">
+
+<img src="../CT_Pipeline/roi_spm_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;">
+
+---
+
+
+## Population ICH
+
+<img src="../CT_Pipeline/Figure4_Proportion.png" width=500 alt="Data structure", style="float:left;">
+<img src="reoriented_Binary_Sum_Image_histogram.png" width=500 alt="Data structure", style="float:right;">
+
+---
+
+
+
+
+
+## Voxel-wise Regression
+
+$$
+Y_i = \beta_0+\beta_1(v) + \epsilon_{iv}, 
+$$
+<img src="../CT_Pipeline/Regression_Map_heatcol1_t1.png" width=550 alt="Data structure", style="float:left;">
+
+---
+
+
+## Regressing on ROI Coverage
+
+$$
+{\rm NIHSS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+$$
+
+$$
+{\rm GCS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+$$
+
+<img src="Models.png" width=800 alt="Data structure", style="margin:0 auto;">
+
+
+---
+## Regressing on ROI Coverage
+
+<img src="ROI_Results.png" width=550 alt="Data structure", style="margin:0 auto;">
+
+---
+
+
+## Results for NIHSS
+
+$$
+{\rm NIHSS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+$$
+
+
+<img src="nihss_table.png" width=700 alt="Data structure", style="float:left;">
+
+---
+
+
+## Results for GCS
+
+$$
+{\rm GCS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+$$
+
+<img src="gcs_table.png" width=700 alt="Data structure", style="float:left;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stroke Imaging Data- What I have learned</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Stroke Imaging Data- What I have learned">
+  <meta name="author" content="@StrictlyStat (github: muschellij2)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight/css/hemisu-light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Stroke Imaging Data- What I have learned</h1>
+    <h2>John Muschelli</h2>
+    <p>@StrictlyStat (github: muschellij2)<br/>Johns Hopkins Bloomberg School of Public Health</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="cover" id="Cover" style="background:;">
+  <hgroup>
+    <h2>Goals</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Registration to a template</li>
+<li>3D Histogram of Stroke Prevalence</li>
+<li>Longitudinal image registration with CT</li>
+<li>Use some standard or novel methods on CT data for segmentation</li>
+<li>Pipeline</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Registration</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Chris Rorden has released a <a href="http://www.mccauslandcenter.sc.edu/CRNL/clinical-toolbox">Clinical Toolbox</a></li>
+<li>Has a <strong>CT Template</strong>!</li>
+<li>Uses SPM to do spatial co-registration &quot;Normalization&quot;.</li>
+<li>Must mask out the lesion / stroke.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>SPM</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Must align to AC/PC line
+
+<ul>
+<li>ACPCdetect is on NITRC in ART (automatic registration toolbox) <a href="http://www.nitrc.org/forum/forum.php?forum_id=1927">Here</a></li>
+<li>Chris Rorden has scripts to do this in <a href="http://www.mccauslandcenter.sc.edu/CRNL/tools/spm8-scripts">SPM8</a></li>
+<li>I&#39;ve done it manually</li>
+<li>May use Skull Stripping.</li>
+</ul></li>
+<li>Doesn&#39;t use .nii.gz files</li>
+<li>Uses MATLAB</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>How many patients</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>CLEAR IVH - 100 patients</li>
+<li>MISTIE and ICES - 144 patients</li>
+<li>CLEAR III - currently 350 patients (to be 500)</li>
+<li>MISTIE III - 500 patients (just funded)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Data Types</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>CT Data - all ROIs are done on axial based CT - also have some saggital and coronal
+
+<ul>
+<li>Have follow-up scans that have no blood, but still deformation</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>What&#39;s done - Flow</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>After Data has been exported from OsiriX:
+<img src="CT_Flowchart.png" style="width:400px; height:500px; float:right;" alt="Lot of code" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>CT Image - I have big blood and I can not lie</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="Big_Blood_232-512.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Gantry Tilt - Cone heading</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="Gantry_Tilt.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Gantry Tilt - It&#39;s a Brain!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="Gantry_Corrected.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Goals'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Registration'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='SPM'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How many patients'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Data Types'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='What&#39;s done - Flow'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='CT Image - I have big blood and I can not lie'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Gantry Tilt - Cone heading'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Gantry Tilt - It&#39;s a Brain!'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title=''>
+         10
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+   
+  </html>
