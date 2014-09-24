@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Localization in ICH</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Localization in ICH">
+  <meta name="author" content="John Muschelli">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight/css/hemisu-light.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Localization in ICH</h1>
+    <h2>A CT Imaging Pipeline</h2>
+    <p>John Muschelli<br/>Johns Hopkins Bloomberg School of Public Health</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="cover" id="Cover" style="background:;">
+  <hgroup>
+    <h2>CT Images</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="Gantry_Corrected.png" style="width:1000px; height:432px; float:right;" alt="Lot of code" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Brain Extraction!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="../CT_Pipeline/100-318_20070723_0957_CT_3_CT_Head-_SS_Mask_0.01.png" width=400 alt="Data structure", style="float:left;"></p>
+
+<p><img src="../CT_Pipeline/100-318_20070723_0957_CT_3_CT_Head-_SS_0.01.png" width=400 alt="Data structure", style="float:left;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Registered Images and Masks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="../CT_Pipeline/native_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;"></p>
+
+<p><img src="../CT_Pipeline/raw_spm_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;"></p>
+
+<p><img src="../CT_Pipeline/roi_spm_100-362_20100126_1926_CT_2_CT_ROUTINE.png" width=300 alt="Data structure", style="float:left;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Population ICH</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="../CT_Pipeline/Figure4_Proportion.png" width=500 alt="Data structure", style="float:left;">
+<img src="reoriented_Binary_Sum_Image_histogram.png" width=500 alt="Data structure", style="float:right;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Voxel-wise Regression</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>\[
+Y_i = \beta_0+\beta_1(v) + \epsilon_{iv}, 
+\]
+<img src="../CT_Pipeline/Regression_Map_heatcol1_t1.png" width=550 alt="Data structure", style="float:left;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Regressing on ROI Coverage</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>\[
+{\rm NIHSS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+\]</p>
+
+<p>\[
+{\rm GCS}_i = \beta_0 + \beta_1 {\rm Coverage}_i + \gamma_1{\rm Age}_i  +\gamma_2{\rm Gender}_i +\gamma_3{\rm TICHVol}_i + \epsilon_{i}
+\]</p>
+
+<p><img src="Models.png" width=800 alt="Data structure", style="margin:0 auto;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Regressing on ROI Coverage</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="ROI_Results.png" width=550 alt="Data structure", style="margin:0 auto;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='CT Images'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Brain Extraction!'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Registered Images and Masks'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Population ICH'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Voxel-wise Regression'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Regressing on ROI Coverage'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Regressing on ROI Coverage'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title=''>
+         8
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+</html>

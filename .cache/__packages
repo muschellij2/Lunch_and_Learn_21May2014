@@ -1,10 +1,4 @@
 base
-datasets
 devtools
-graphics
-grDevices
 knitr
-methods
 slidify
-stats
-utils
